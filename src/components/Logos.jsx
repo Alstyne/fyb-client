@@ -1,11 +1,12 @@
 // ── NAMSSN Departmental Logo (SVG recreation) ─────────────────────
 export const NAMSSNLogo = ({ size = 40, className = '' }) => (
   <svg
-    width={size}
-    height={size}
-    viewBox="0 0 200 200"
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
+     width={size}
+  height={size}
+  viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  className={className}
+  style={{ background: 'white', borderRadius: '50%' }}
     role="img"
     aria-label="NAMSSN - National Association of Mathematical Sciences Students of Nigeria"
   >
@@ -76,11 +77,12 @@ export const NAMSSNLogo = ({ size = 40, className = '' }) => (
 // ── University of Jos Logo (SVG recreation) ───────────────────────
 export const UniJosLogo = ({ size = 40, className = '' }) => (
   <svg
-    width={size}
-    height={size}
-    viewBox="0 0 200 220"
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
+   width={size}
+  height={size}
+  viewBox="0 0 200 220"
+  xmlns="http://www.w3.org/2000/svg"
+  className={className}
+  style={{ background: 'white', borderRadius: '8px' }}
     role="img"
     aria-label="University of Jos - Discipline and Dedication"
   >
