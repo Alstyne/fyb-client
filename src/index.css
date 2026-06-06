@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F5F0E8;
+  color: #1A1A2E;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --cream: #F5F0E8;
+  --ink: #1A1A2E;
+  --gold: #C9A84C;
+  --muted: #8B8B8B;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 99px; }
+
+/* Grain overlay on body */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Gold shimmer animation for skeleton */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #ede8df 25%,
+    #e4ddd2 50%,
+    #ede8df 75%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 1.8s infinite linear;
+  border-radius: 12px;
+}
+
+/* Smooth image load */
+img {
+  transition: opacity 0.3s ease;
+}
+img[src=""] { opacity: 0; }
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+/* ── Responsive Enhancements ─────────────────────────────────── */
+
+/* Finalist Card — make grid responsive */
+@media (max-width: 640px) {
+  /* Profile card: stack columns on mobile */
+  [data-finalist-card] {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Admin tabs: scroll horizontally */
+  .admin-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .admin-tabs::-webkit-scrollbar { display: none; }
+}
+
+/* Make finalist card body responsive */
+.finalist-card-body {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+}
+
+@media (max-width: 700px) {
+  .finalist-card-body {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto;
+  }
+  .finalist-card-body > div:first-child {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(153,27,27,0.15);
+  }
+}
+
+/* Responsive profile page header */
+@media (max-width: 768px) {
+  .profile-header-row {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+  .profile-tab-group {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* Responsive admin grid */
+@media (max-width: 480px) {
+  .admin-stat-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* Touch-friendly tap targets */
+@media (max-width: 768px) {
+  button, a {
+    min-height: 36px;
+  }
+}
