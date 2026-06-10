@@ -121,7 +121,7 @@ const SocialLinks = ({ student }) => {
 const FinalistCard = ({ student }) => {
   const glance = student.at_a_glance?.length > 0 ? student.at_a_glance : [
     { label: 'Fav. Courses',     value: student.num_favourite_courses || '—' },
-    { label: 'Top Level',        value: '500L' },
+    { label: 'Top Level',        value: '400L' },
     { label: 'Experience',       value: student.experience ? '✓' : '—' },
     { label: 'Memorable Day',    value: student.most_memorable_day ? '✓' : '—' },
     { label: 'Parting Words',    value: student.parting_words ? '✓' : '—' },
@@ -336,7 +336,7 @@ const CarouselPage = () => {
                   transition={{ delay: 0.4, duration: 0.6 }}
                   className="text-cream/40 text-sm mt-4 max-w-md leading-relaxed"
                 >
-                  2 students featured daily · Rotates every 24 hours
+                  3 students featured daily · Rotates every 24 hours
                 </motion.p>
               </div>
 
